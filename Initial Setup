@@ -1,0 +1,38 @@
+# Install terraform
+# Go to that directory and where the Terraform .exe file is availble and run the terraform commands
+C:\tools\terraform_1.0.4_windows_amd64 (2)>
+
+3. Create .tf files in Visual Studio
+
+#Run the Terraform basic commands "init" "plan" "apply"
+
+Main commands:
+  init          Prepare your working directory for other commands
+  validate      Check whether the configuration is valid
+  plan          Show changes required by the current configuration
+  apply         Create or update infrastructure
+  destroy       Destroy previously-created infrastructure
+
+# Check provide detail on this link
+https://registry.terraform.io/browse/providers
+
+#Make file to store the Credential and Key ----> Static
+
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "my-access-key"
+  secret_key = "my-secret-key"
+}
+
+#Make file to store the Credential and Key ======> Bu using Environmental Variable
+$ export AWS_ACCESS_KEY_ID="anaccesskey"
+$ export AWS_SECRET_ACCESS_KEY="asecretkey"
+$ export AWS_DEFAULT_REGION="us-west-2"
+$ terraform plan
+
+Usage
+provider "aws" {
+  region                  = "us-west-2"
+  shared_credentials_file = "/Users/tf_user/.aws/creds"
+  profile                 = "customprofile"
+}
